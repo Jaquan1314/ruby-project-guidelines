@@ -31,9 +31,7 @@ class User < ActiveRecord::Base
         if option == "Hp"
             puts "Your current hp is #{self.gokus.health}"
         elsif option == "Continue"
-            new_goku = Goku.new("Goku", 100, @username, 4)
-            # puts "Your first enemy will be "
-
+            # new_goku = Goku.new(user_id: self.user_id, health: 100, honor: 4)
         end
     end
 end
