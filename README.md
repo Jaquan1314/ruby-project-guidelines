@@ -1,3 +1,12 @@
+User Stories
+-I want to be able to create an account
+-I want to be able to sign in with my current account
+-I want to be able to check my characters hp before battle
+-I want my character's and the enemy's health to be updated throughout the battle
+-I want to be able to delete any battles that I have lost
+
+
+
 # Module One Final Project Guidelines
 
 Congratulations, you're at the end of module one! You've worked crazy hard to get here and have learned a ton.
