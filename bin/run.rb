@@ -57,7 +57,7 @@ def goku_health_check
         puts "Yikes, you really got your butt kicked."
         hide_evidence = @@prompt.yes?("Wanna delete the record of your embarrassing defeat?")
             if hide_evidence == "Yes"
-                Battle.last.delete
+                Battle.last.destroy
             elsif hide_evidence == "No"
                 puts "Why? Whatever, its fine"
             end
@@ -66,9 +66,16 @@ def goku_health_check
     end 
 end
 
+def enemy_health_check
+    if 0 >= Enemy.last.health
+        puts "Congratulations, the earth lives to be polluted another day!"
+    end 
+end
+
 def goku_turn
     current_goku = Goku.last
     current_enemy = Enemy.last
+    my_health = @@prompt
     goku_moves = @@prompt.select("Choose an attack:", %w(Kamehameha GroinKick HairPull SpiritBomb PowerPole EyePoke))
     if goku_moves == "Kamehameha"
         puts "Ka...Me...Ha...Me...HA!!!"
@@ -101,8 +108,8 @@ def goku_turn
         current_enemy.save
     elsif goku_moves == "EyePoke"
         puts "This is rude but you gotta do what you gotta do!"
-        puts "Holy smokes! 60 Damage!"
-        current_enemy.health = current_enemy.health - 60
+        puts "Holy smokes! 45 Damage!"
+        current_enemy.health = current_enemy.health - 45
         current_enemy.save
     end
 
@@ -153,6 +160,7 @@ enemy_turn_2
 goku_health_check
 goku_turn
 enemy_turn_3
+enemy_health_check
 goku_health_check
 
 #binding.pry
